@@ -1,7 +1,15 @@
 module MetaInspector
   module Parsers
     class HeadLinksParser < Base
-      delegate [:parsed, :base_url] => :@main_parser
+      delegate [:parsed, :base_url, :host] => :@main_parser
+
+      def stylesheets_href
+        @stylesheets_href = stylesheets.pluck(:href)
+      end
+
+      def stylesheets_href_external
+        @external ||= stylesheets_href.select { |link| URL.new(link).host != host }
+      end
 
       def head_links
         @head_links ||= parsed.css('head link').map do |tag|

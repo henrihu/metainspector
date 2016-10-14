@@ -24,7 +24,8 @@ module MetaInspector
     extend Forwardable
     delegate [:url, :scheme, :host]                          => :@document
     delegate [:meta_tags, :meta_tag, :meta, :charset]        => :@meta_tag_parser
-    delegate [:head_links, :stylesheets, :canonicals, :feed] => :@head_links_parser
+    delegate [:head_links, :stylesheets, :canonicals, :feed,
+              :stylesheets_href, :stylesheets_href_external] => :@head_links_parser
     delegate [:links, :base_url]                             => :@links_parser
     delegate :scripts                                        => :@scripts_parser
     delegate :images                                         => :@images_parser

@@ -49,7 +49,7 @@ module MetaInspector
               :description, :links, :scripts,
               :images, :feed, :charset, :meta_tags,
               :meta_tag, :meta, :favicon,
-              :head_links, :stylesheets, :canonicals] => :@parser
+              :head_links, :stylesheets, :canonicals, :stylesheets_href, :stylesheets_href_external] => :@parser
 
     # Returns all document data as a nested Hash
     def to_hash
